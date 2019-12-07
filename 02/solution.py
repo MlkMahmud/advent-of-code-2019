@@ -1,16 +1,15 @@
-
 def convertInputToIntList(input):
   with open(input, "r") as file:
     return  [int(x) for x in file.read().strip().split(',')]
 
-def resetComputerMemory(input):
+def resetComputerMemory(input, noun, verb):
   program = input
-  program[1] = 12
-  program[2] = 2
+  program[1] = noun
+  program[2] = verb
   return program
   
-def restoreProgram():
-  program = resetComputerMemory(convertInputToIntList("02/input.txt"))
+def restoreProgram(noun, verb):
+  program = resetComputerMemory(convertInputToIntList("02/input.txt"), noun, verb)
   
   for i in range(0, len(program), 4):
     opcode = program[i]
@@ -26,8 +25,16 @@ def restoreProgram():
         program[output] = program[inputA] * program[inputB]
       else:
         continue
+      
+  return program[0]
 
-  return program
+def findNounAndVerb(target):
+  for noun in range(100):
+    for verb in range(100):
+      output = restoreProgram(noun, verb)
+      if output == target:
+        return f"Noun: {noun}, Verb: {verb}"
+  return ""
 
-
-print(restoreProgram())
+print(restoreProgram(12, 2))
+print(findNounAndVerb(19690720))
