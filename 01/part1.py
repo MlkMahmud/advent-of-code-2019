@@ -2,9 +2,12 @@ def calculateFuelRequirement(mass):
   return (mass // 3) - 2
 
 
-with open('01/input.txt', 'r') as file:
+def calculateTotalFuelRequired(input, fn):
   totalFuelRequired = 0
-  for line in file:
-    mass = int(line.strip())
-    totalFuelRequired += calculateFuelRequirement(mass)
-  print(totalFuelRequired)
+  with open(input, 'r') as file:
+    for line in file:
+      mass = int(line.strip())
+      totalFuelRequired += fn(mass)
+  return totalFuelRequired
+
+print(calculateTotalFuelRequired('01/input.txt', calculateFuelRequirement))
