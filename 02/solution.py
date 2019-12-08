@@ -3,7 +3,7 @@ def convertInputToIntList(input):
     return  [int(x) for x in file.read().strip().split(',')]
 
 def resetComputerMemory(input, noun, verb):
-  program = input
+  program = list.copy(input)
   program[1] = noun
   program[2] = verb
   return program
