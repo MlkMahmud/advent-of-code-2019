@@ -6,7 +6,7 @@ def get_codes(code):
   code = str(code).zfill(4)
   return [int(code[-2:]), int(code[-3]), int(code[-4])]
 
-def run_diagnostics(program):
+def run_diagnostics(program, input):
   index = 0
   diagnostic_code = None
   while True:
@@ -28,15 +28,43 @@ def run_diagnostics(program):
         index += 4
     
       elif opcode == 3:
-        program[program[index + 1]] = 1
+        program[program[index + 1]] = input
         index += 2
     
       elif opcode == 4:
         diagnostic_code = program[program[index + 1]]
         index += 2
+      
+      elif opcode == 5:
+        if program[param_a] != 0:
+          index = program[param_b]
+        else:
+          index += 3
+      
+      elif opcode == 6:
+        if program[param_a] == 0:
+          index = program[param_b]
+        else:
+          index += 3
+      
+      elif opcode == 7:
+        if program[param_a] < program[param_b]:
+          program[program[index + 3]] = 1
+        else:
+          program[program[index + 3]] = 0
+        index += 4
+      
+      elif opcode == 8:
+        if program[param_a] == program[param_b]:
+          program[program[index + 3]] = 1
+        else:
+          program[program[index + 3]] = 0
+        index += 4
+
 
   return diagnostic_code
     
 program = parse_input("05/input.txt")
 
-print(f"Part One: {run_diagnostics(program)}")
+print(f"Part One: {run_diagnostics(program, 1)}")
+print(f"Part Two: {run_diagnostics(program, 5)}")
