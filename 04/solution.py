@@ -1,4 +1,4 @@
-def input_to_list(input):
+def parse_input(input):
   return [int(x) for x in input.split('-')]
 
 def possible_passsword_combinations(start, stop):
@@ -20,7 +20,7 @@ def new_possible_password_combinations(passwords):
   
   return possible_combinations
 
-start, stop = input_to_list('246540-787419')
+start, stop = parse_input('246540-787419')
 passwords = possible_passsword_combinations(start, stop)
 print(f"Possible Password Combinations Part 1: {len(passwords)}")
 print(f"Possible Password Combinations Part 2: {new_possible_password_combinations(passwords)}")

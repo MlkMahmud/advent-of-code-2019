@@ -1,4 +1,4 @@
-def convert_input_to_list(input):
+def parse_input(input):
   with open(input, "r") as file:
     return  [int(x) for x in file.read().strip().split(',')]
 
@@ -9,7 +9,7 @@ def reset_computer_memory(input, noun, verb):
   return program
   
 def restore_program(noun, verb):
-  program = reset_computer_memory(convert_input_to_list("02/input.txt"), noun, verb)
+  program = reset_computer_memory(parse_input("02/input.txt"), noun, verb)
   
   for i in range(0, len(program), 4):
     opcode = program[i]
