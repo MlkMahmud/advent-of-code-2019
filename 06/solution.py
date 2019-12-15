@@ -15,7 +15,6 @@ def calculate_orbits(map):
       key = map[key]
   return orbits
 
-
     
 def calculate_orbital_transfers(map):
   santa = map['SAN']
