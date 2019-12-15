@@ -7,18 +7,36 @@ def parse_input(input):
   return output
 
 
-def calculate_orbits(data):
+def calculate_orbits(map):
   orbits = 0
-  for key in data:
-    while key in data:
+  for key in map:
+    while key in map:
       orbits += 1
-      key = data[key]
+      key = map[key]
   return orbits
 
+    
+def calculate_orbital_transfers(map):
+  santa = map['SAN']
+  you = map['YOU']
+  path = {}
+  your_moves = 0
+  santas_moves = 0
   
+  while you in map:
+    you = map[you]
+    your_moves += 1
+    path[you] = your_moves
   
+  while santa not in path:
+    santa = map[santa]
+    santas_moves += 1
+  return santas_moves + path[santa]
+
+    
 
 
 
-data = parse_input("06/input.txt")
-print(f"Part One: {calculate_orbits(data)}")
+map = parse_input("06/input.txt")
+print(f"Part One: {calculate_orbits(map)}")
+print(f"Part Two: {calculate_orbital_transfers(map)}")
