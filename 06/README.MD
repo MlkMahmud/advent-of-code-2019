@@ -25,7 +25,7 @@ Before you use your map data to plot a course, you need to make sure it wasn't c
 Whenever A orbits B and B orbits C, then A indirectly orbits C. This chain can be any number of objects long: if A orbits B, B orbits C, and C orbits D, then A indirectly orbits D.
 
 For example, suppose you have the following map:
-
+```
 COM)B
 B)C
 C)D
@@ -37,13 +37,16 @@ D)I
 E)J
 J)K
 K)L
+```
 Visually, the above map of orbits looks like this:
+```
 
         G - H       J - K - L
        /           /
 COM - B - C - D - E - F
                \
                 I
+```
 In this visual representation, when two objects are connected by a line, the one on the right directly orbits the one on the left.
 
 Here, we can count the total number of orbits as follows:
