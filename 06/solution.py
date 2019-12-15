@@ -16,7 +16,6 @@ def calculate_orbits(map):
   return orbits
 
 
-# Find an intersection and determine how many steps it takes you and Santa to make it there.
     
 def calculate_orbital_transfers(map):
   santa = map['SAN']

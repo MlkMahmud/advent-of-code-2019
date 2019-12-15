@@ -1,22 +1,22 @@
-def calculateFuelRequirement(mass):
+def calculate_fuel_requirement(mass):
   return (mass // 3) - 2
 
 
-def calculateAdditionalFuelRequirement(fuel):
-  additionalFuel = 0
+def calculate_additional_fuel_requirement(fuel):
+  additional_fuel = 0
   while True:
-    fuel = calculateFuelRequirement(fuel)
+    fuel = calculate_fuel_requirement(fuel)
     if fuel < 1:
       break
-    additionalFuel += fuel
-  return additionalFuel
+    additional_fuel += fuel
+  return additional_fuel
 
 
-with open("01/input.txt", "r") as file:
-  fuelRequirement = 0
-  additionalFuelRequirement = 0
+with open("01/input.txt") as file:
+  fuel_requirement = 0
+  additional_fuel_requirement = 0
   for line in file:
     mass = int(line.strip())
-    fuelRequirement += calculateFuelRequirement(mass)
-    additionalFuelRequirement += calculateAdditionalFuelRequirement(mass)
-  print(f"Fuel Requirement: {fuelRequirement}\nAdditional Fuel Requirement: {additionalFuelRequirement}")
+    fuel_requirement += calculate_fuel_requirement(mass)
+    additional_fuel_requirement += calculate_additional_fuel_requirement(mass)
+  print(f"Fuel Requirement: {fuel_requirement}\nAdditional Fuel Requirement: {additional_fuel_requirement}")
