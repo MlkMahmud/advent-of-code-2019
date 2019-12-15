@@ -2,8 +2,8 @@ def parse_input(input):
   output = {}
   with open(input) as file:
     for line in file:
-      for a, b in [line.strip().split(')')]:
-        output[b] = a
+      a, b = line.strip().split(')')
+      output[b] = a
   return output
 
 
