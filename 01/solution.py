@@ -12,7 +12,7 @@ def calculate_additional_fuel_requirement(fuel):
   return additional_fuel
 
 
-with open("01/input.txt") as file:
+with open("input.txt") as file:
   fuel_requirement = 0
   additional_fuel_requirement = 0
   for line in file:

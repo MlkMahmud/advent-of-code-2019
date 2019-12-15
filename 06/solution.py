@@ -37,6 +37,6 @@ def calculate_orbital_transfers(map):
 
 
 
-map = parse_input("06/input.txt")
+map = parse_input("input.txt")
 print(f"Part One: {calculate_orbits(map)}")
 print(f"Part Two: {calculate_orbital_transfers(map)}")
