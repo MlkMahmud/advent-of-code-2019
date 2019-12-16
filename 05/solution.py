@@ -65,5 +65,5 @@ def run_diagnostics(program, input):
 
 
 program = parse_input("input.txt")
-print(f"Part One: {run_diagnostics(program, 1)}")
-print(f"Part Two: {run_diagnostics(program, 5)}")
+print(f"Part One: {run_diagnostics(program[:], 1)}")
+print(f"Part Two: {run_diagnostics(program[:], 5)}")
