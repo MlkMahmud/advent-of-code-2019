@@ -61,10 +61,9 @@ def run_diagnostics(program, input):
           program[program[index + 3]] = 0
         index += 4
 
-
   return diagnostic_code
-    
-program = parse_input("05/input.txt")
 
-print(f"Part One: {run_diagnostics(program, 1)}")
-print(f"Part Two: {run_diagnostics(program, 5)}")
+
+program = parse_input("input.txt")
+print(f"Part One: {run_diagnostics(program[:], 1)}")
+print(f"Part Two: {run_diagnostics(program[:], 5)}")
