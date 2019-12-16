@@ -33,9 +33,8 @@ def get_coordinates(path):
       y += y_distance
       steps += 1
       coordinates.append((x, y))
-      key = str(x) + str(y)
-      if key not in moves:
-        moves[key] = steps
+      if (x, y) not in moves:
+        moves[(x, y)] = steps
   coordinates.insert(0, moves)
   return coordinates
       
@@ -50,7 +49,7 @@ def get_min_steps(a, b):
   path_b = b[0]
   min_steps = None
   for x, y in overlaps:
-    key = str(x) + str(y)
+    key = (x, y)
     if key in path_a and key in path_b:
       steps = path_a[key] + path_b[key]
       if min_steps is None or steps < min_steps:
