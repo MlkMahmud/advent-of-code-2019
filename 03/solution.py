@@ -44,19 +44,21 @@ def get_manhatthan_distance(a, b):
   return min([abs(a) + abs(b) for a, b in overlaps])
 
 
-def calculate_fewest_steps(a, b):
+def get_min_steps(a, b):
   overlaps = list(set(a[1:]) & set(b[1:]))
   path_a = a[0]
   path_b = b[0]
-  steps = []
+  min_steps = None
   for x, y in overlaps:
     key = str(x) + str(y)
     if key in path_a and key in path_b:
-      steps.append(path_a[key] + path_b[key])
-  return min(steps)
+      steps = path_a[key] + path_b[key]
+      if min_steps is None or steps < min_steps:
+        min_steps = steps
+  return min_steps
 
 a, b = parse_input("input.txt")
 wire_a = get_coordinates(a)
 wire_b = get_coordinates(b)
 print(f"Part One: {get_manhatthan_distance(wire_a, wire_b)}")
-print(f"Part Two: {calculate_fewest_steps(wire_a, wire_b)}")
+print(f"Part Two: {get_min_steps(wire_a, wire_b)}")
