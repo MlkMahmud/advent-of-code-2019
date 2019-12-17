@@ -8,7 +8,6 @@ def get_codes(code):
   code = str(code).zfill(4)
   return [int(code[-2:]), int(code[-3]), int(code[-4])]
 
-
 def run_diagnostics(program, phase, input):
   index = 0
   diagnostic_code = None
