@@ -65,25 +65,23 @@ def run_diagnostics(program, phase, input):
         else:
           program[program[index + 3]] = 0
         index += 4
+      else:
+        break
 
   return diagnostic_code
 
-def run_amplifier(program, phase_setting):
-  input = 0
+def run_amplifier(program, phase_setting, input):
   for phase in phase_setting:
-    result = run_diagnostics(program, phase, input)
-    input = result
-  return result
+    input = run_diagnostics(program, phase, input)
+  return input
 
-
-def get_max_thrust_signal(program, phase_setting):
+def get_max_thruster_signal(program, phase_setting, fn):
   max_signal = None
   for phase in permutations(phase_setting):
-    result = run_amplifier(program[:], phase)
+    result = fn(program[:], phase, 0)
     if not max_signal or result > max_signal:
       max_signal = result
   return max_signal
 
 program = parse_input("input.txt")
-print(get_max_thrust_signal(program, [0, 1, 2, 3, 4]))
-
+print(f"Part One: {get_max_thruster_signal(program, [0,1,2,3,4], run_amplifier)}")
