@@ -23,22 +23,20 @@ def calculate(layer):
   return layer.count('1') * layer.count('2')
 
 def decode_image(layers):
-  decoded_image = layers[0]
+  image = layers[0]
   for x in range(1, len(layers)):
     layer = layers[x]
     for i in range(len(layer)):
-      if decoded_image[i] == '2' and layer[i] in '10':
-        decoded_image[i] = layer[i]
-  return decoded_image
+      if image[i] == '2' and layer[i] in '10':
+        image[i] = layer[i]
+      if image[i] is '1':
+        image[i] = '#'
+      elif image[i] is '0':
+        image[i] = " "
+  return image 
 
 
 def print_image(image, width):
-  for i in range(len(image)):
-    char = image[i]
-    if char == '0':
-      image[i] = " "
-    else:
-      image[i] = '#'
   for x in range(0, len(image), width):
     print("".join(image[x: x + width]))
 
