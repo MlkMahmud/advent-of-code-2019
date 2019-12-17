@@ -8,7 +8,6 @@ def get_codes(code):
 
 def run_diagnostics(program, input):
   index = 0
-  diagnostic_code = None
   while True:
     opcode, mode_a, mode_b = get_codes(program[index])
 
@@ -32,7 +31,7 @@ def run_diagnostics(program, input):
         index += 2
     
       elif opcode == 4:
-        diagnostic_code = program[program[index + 1]]
+        program[0] = program[program[index + 1]]
         index += 2
       
       elif opcode == 5:
@@ -61,7 +60,7 @@ def run_diagnostics(program, input):
           program[program[index + 3]] = 0
         index += 4
 
-  return diagnostic_code
+  return program[0]
 
 
 program = parse_input("input.txt")
