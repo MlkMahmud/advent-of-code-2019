@@ -17,7 +17,7 @@ def get_param(program, mode, index, base):
     param = program[index] + base
   return param
 
-def run_diagnostics(program):
+def run_diagnostics(program, input):
   index = 0
   diagnostic_code = []
   relative_base = 0
@@ -41,7 +41,7 @@ def run_diagnostics(program):
         index += 4
 
       elif opcode == 3:
-        program[param_a] = int(input("Input: "))
+        program[param_a] = input
         index += 2
 
       elif opcode == 4:
@@ -81,4 +81,5 @@ def run_diagnostics(program):
   return diagnostic_code
 
 program = parse_input("input.txt") + [0] * 500
-print(f"Part One: {run_diagnostics(program)}")
+print(f"Part One: {run_diagnostics(program, 1)}")
+print(f"Part Two: {run_diagnostics(program, 2)}")
