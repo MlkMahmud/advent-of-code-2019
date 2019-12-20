@@ -140,8 +140,9 @@ pos=<x= -9, y=-10, z=  1>, vel=<x= -2, y= -2, z= -1>
 pos=<x=  4, y= 10, z=  9>, vel=<x= -3, y=  7, z= -2>
 pos=<x=  8, y=-10, z= -3>, vel=<x=  5, y= -1, z= -2>
 pos=<x=  5, y=-10, z=  3>, vel=<x=  0, y= -4, z=  5>
-
+```
 After 20 steps:
+```
 pos=<x=-10, y=  3, z= -4>, vel=<x= -5, y=  2, z=  0>
 pos=<x=  5, y=-25, z=  6>, vel=<x=  1, y=  1, z= -4>
 pos=<x= 13, y=  1, z=  1>, vel=<x=  5, y= -2, z=  2>
@@ -214,8 +215,6 @@ Sum of total energy: 290 + 608 + 574 + 468 = 1940
 ```
 
 What is the total energy in the system after simulating the moons given in your scan for 1000 steps?
-
---- Part Two ---
 
 --- Part Two ---
 
