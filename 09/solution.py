@@ -1,4 +1,3 @@
-
 def parse_input(filename):
   with open(filename) as file:
     return [int(x) for x in file.read().strip().split(',')]
